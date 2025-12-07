@@ -352,33 +352,33 @@
         "type": "object",
         "required": [
           "id",
+          "uuid",
           "username"
         ],
         "properties": {
           "id": {
-            "type": "integer",
-            "format": "int64",
+            "type": "string",
             "description": "Unique user identifier"
+          },
+          "uuid": {
+            "type": "integer",
+            "description": "User UUID"
           },
           "username": {
             "type": "string",
             "description": "Username"
           },
           "alias": {
+            "type": "object",
+            "nullable": true,
+            "description": "User alias configuration"
+          },
+          "displayUsername": {
             "type": "string",
             "nullable": true,
-            "description": "User alias"
+            "description": "Display username"
           },
-          "displayName": {
-            "type": "string",
-            "nullable": true,
-            "description": "Display name"
-          },
-          "isVerified": {
-            "type": "boolean",
-            "description": "Whether the user is verified"
-          },
-          "isBanned": {
+          "banned": {
             "type": "boolean",
             "description": "Whether the user is banned"
           },
@@ -422,6 +422,13 @@
             },
             "description": "User audio tracks"
           },
+          "backgrounds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Background"
+            },
+            "description": "User background media"
+          },
           "viewCount": {
             "type": "integer",
             "description": "Total profile views"
@@ -443,11 +450,6 @@
           "theme": {
             "type": "string",
             "description": "Profile theme"
-          },
-          "background": {
-            "type": "string",
-            "format": "uri",
-            "description": "Background media URL"
           },
           "banner": {
             "type": "string",
@@ -991,6 +993,29 @@
             "format": "uri",
             "nullable": true,
             "description": "External URL for the audio track (e.g., YouTube link)"
+          }
+        }
+      },
+      "Background": {
+        "type": "object",
+        "required": [
+          "id",
+          "backgroundUrl",
+          "active"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Background identifier"
+          },
+          "backgroundUrl": {
+            "type": "string",
+            "format": "uri",
+            "description": "Background media URL"
+          },
+          "active": {
+            "type": "boolean",
+            "description": "Whether background is active"
           }
         }
       },
