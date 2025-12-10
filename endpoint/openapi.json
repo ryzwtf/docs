@@ -133,7 +133,17 @@
                 },
                 "example": {
                   "status": "success",
-                  "url": "https://carti.pics/v82AUOld"
+                  "url": "https://carti.pics/v82AUOld",
+                  "rawUrl": "https://images.haunt.gg/v82AUOld.jpg",
+                  "data": {
+                    "file": "v82AUOld.jpg",
+                    "fileName": "v82AUOld",
+                    "fileExtension": "jpg",
+                    "fileSize": 13002,
+                    "fileOriginal": "v82AUOld.jpg",
+                    "fileWidth": 735,
+                    "fileHeight": 245
+                  }
                 }
               }
             }
@@ -317,7 +327,7 @@
     "schemas": {
       "ImageHostResponse": {
         "type": "object",
-        "required": ["status", "url"],
+        "required": ["status", "url", "rawUrl", "data"],
         "properties": {
           "status": {
             "type": "string",
@@ -329,6 +339,52 @@
             "format": "uri",
             "description": "URL of the uploaded image",
             "example": "https://carti.pics/v82AUOld"
+          },
+          "rawUrl": {
+            "type": "string",
+            "format": "uri",
+            "description": "Raw URL of the uploaded image without any modifications",
+            "example": "https://images.haunt.gg/v82AUOld.jpg"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "file": {
+                "type": "string",
+                "format": "string",
+                "description": "Uploaded image filename with extension"
+              },
+              "fileName": {
+                "type": "string",
+                "format": "string",
+                "description": "Uploaded image filename"
+              },
+              "fileExtension": {
+                "type": "string",
+                "format": "string",
+                "description": "Uploaded image file extension"
+              },
+              "fileSize": {
+                "type": "integer",
+                "format": "int64",
+                "description": "Uploaded image file size in bytes"
+              },
+              "fileOriginal": {
+                "type": "string",
+                "format": "string",
+                "description": "Uploaded image file original name"
+              },
+              "fileWidth": {
+                "type": "integer",
+                "format": "int64",
+                "description": "Uploaded image file width in pixels"
+              },
+              "fileHeight": {
+                "type": "integer",
+                "format": "int64",
+                "description": "Uploaded image file height in pixels"
+              }
+            }
           }
         }
       },
