@@ -124,11 +124,64 @@ If you’d like to suggest a domain, [join our Discord server](https://discord.g
   <Step title="Scroll down">
     Scroll down the page until you see the "Domain Settings" section.
   </Step>
+
   <Step title="Start adding your domain">
     You'll find a form to add your custom domain(s).
 
-    <Frame caption="You can either set your domains private or public.">
-      ![Custom Domain Settings Interface](../images/domain-settings.png)
+    Enter your domain url in the Domain box.  
+    Choose the Visibility of your domain, then hit “Add Domain”.
+
+    <Frame>
+      ![Domain Configuration Popup](../images/Domain-Config-popup.png)
+    </Frame>
+  </Step>
+
+  <Step title="Configure your DNS">
+    To finish linking your domain to our website please go to your domain provider dashboard, then go to the dns options.  
+    For this exemple i will use Cloudflare but your domain provider dashboard works the same.
+
+    <Frame>
+      ![Cloudflare DNS Records](../images/cloudflarednsrecords.png)
+    </Frame>
+
+    Here click “Add record” then change the Record type to CNAME, put the name the “Domain Configuration” pop-up gave you and put the Value in the target box un check the proxied option in “Proxy status” and put it to “DNS only” for it to work. Then it save.
+
+    <Frame>
+      ![Add DNS Record](../images/domain-linker-add-record.png)
+    </Frame>
+
+    After this go back to your image-host dashboard and open back the pop-up by clicking “Open DNS Setup” in “Your Domains”.
+
+    <Frame>
+      ![Waiting for DNS Setup](../images/YourDomains-List-WaitingForDNSsetup.png)
+    </Frame>
+  </Step>
+
+  <Step title="Verify your domain">
+    Now press the “Verify Domain” button.
+
+    <Frame>
+      ![Verify Domain Button](../images/VerifyDomainButtonList.png)
+    </Frame>
+
+    If you see this then you're good to go !
+
+    <Frame>
+      ![Domain Linked Successfully](../images/YourDomains-List-Completed.png)
+    </Frame>
+
+    However if you got any error then please double check if u use Cloudflare that the record is DNS only and not proxied.
+
+    <Frame>
+      ![DNS Record DNS Only](../images/dns-record.png)
+    </Frame>
+
+    If it is DNS only and not proxied then you have to wait for the DNS propagation.  
+    You can use https://dnschecker.org/ to check your DNS.  
+    Choose CNAME, put your DNS record name and hit Search.
+
+    <Frame>
+      ![DNS Checker](../images/dns-checker.png)
     </Frame>
   </Step>
 </Steps>
@@ -816,5 +869,6 @@ The Image Host subscription with the most storage and the largest file size limi
 <Info>
 Available payment methods can be found [here](../overview/payment-methods).
 </Info>
+
 
 
