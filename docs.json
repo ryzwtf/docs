@@ -7,6 +7,10 @@
     "light": "#F38ABA",
     "dark": "#D970A1"
   },
+  "banner": {
+  "content": "⚠ Donating domains for imagehost is currently disabled due to issue with Vercel.",
+  "dismissible": true 
+},
   "favicon": "/logo/favicon.png",
   "navigation": {
     "tabs": [
